@@ -90,8 +90,17 @@ public class NumberTriangle {
      *
      */
     public int retrieve(String path) {
-        // TODO implement this method
-        return -1;
+        NumberTriangle current = this;
+        for  (int i = 0; i < path.length(); i++) {
+            char dir = path.charAt(i);
+            if (dir == 'l'){
+                current = current.left;
+            }
+            else if (dir == 'r'){
+                current = current.right;
+            }
+        }
+        return current.getRoot();
     }
 
     /** Read in the NumberTriangle structure from a file.
